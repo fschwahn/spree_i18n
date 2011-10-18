@@ -11,11 +11,12 @@ namespace :spree_i18n do
   task :update_default do
 
     puts "Fetching latest Spree locale file to #{language_root}"
-    #TODO also pull the auth and dash locales once they exist
+    #TODO also pull the dash locale once it exists
     exec %(
       curl -Lo '#{default_dir}/spree_api.yml' http://github.com/spree/spree/raw/master/api/config/locales/en.yml
       curl -Lo '#{default_dir}/spree_core.yml' http://github.com/spree/spree/raw/master/core/config/locales/en.yml
       curl -Lo '#{default_dir}/spree_promo.yml' http://github.com/spree/spree/raw/master/promo/config/locales/en.yml
+      curl -Lo '#{default_dir}/spree_auth.yml' http://github.com/spree/spree/raw/master/auth/config/locales/en.yml
     )
   end
 
