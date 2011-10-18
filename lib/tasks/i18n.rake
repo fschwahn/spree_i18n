@@ -44,6 +44,12 @@ namespace :spree_i18n do
     print "New locale generated.\n"
     print "Don't forget to also download the rails translation from: http://github.com/svenfuchs/rails-i18n/tree/master/rails/locale\n"
   end
+  
+  desc "Create default locale"
+  task :default do
+    write_file "#{language_root}/default.yml", "default", '---', composite_keys, false
+    print "Default locale generated.\n"
+  end
 
   desc "Show translation status for all supported locales other than en."
   task :stats do
